@@ -18,6 +18,11 @@ class linkedlist {
     public:
         node<T> * head;
         
+        // Default constructor
+        linkedlist () {
+            numNodes = 0;
+        }
+
         // Returns number of data elements in the list
         int size() {
             return numNodes;
