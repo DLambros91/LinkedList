@@ -17,6 +17,7 @@ class linkedlist {
 
     public:
         node<T> * head;
+        node<T> * tail;
         
         // Default constructor
         linkedlist () {
@@ -56,12 +57,31 @@ class linkedlist {
                 head = new node<T>;
                 head->data = value;
                 numNodes++;
+                tail = head;
                 return;
             }
             node<T> * tmp = new node<T>;
             tmp->data = value;
             tmp->next = head;
             head = tmp;
+            numNodes++;
+            return;
+        }
+
+        // Adds node at the end of LinkedList
+        void push_back(T value) {
+            if (numNodes == 0) {
+                head = new node<T>;
+                head->data = value;
+                numNodes++;
+                tail = head;
+                return;
+            }
+
+            node<T> * tmp = new node<T>;
+            tmp->data = value;
+            tail->next = tmp;
+            tail = tmp;
             numNodes++;
             return;
         }
