@@ -102,6 +102,7 @@ class linkedlist {
             return val;
         }
 
+        // Removes tail node and returns the value in the node
         T pop_back() {
             if (numNodes == 0) {
                 std::cout << "ERROR: LinkedList is empty." << std::endl;
@@ -122,6 +123,15 @@ class linkedlist {
             tail = tmp;
             numNodes--;
             return val;
+        }
+
+        // Get the value stored in the head node
+        T front() {
+            if (numNodes == 0) {
+                std::cout << "ERROR. LinkedList is empty." << std::endl;
+                return -1;
+            }
+            return head->data;
         }
 };
 

@@ -14,5 +14,8 @@ int main () {
     std::cout << list.pop_back() << std::endl;
     std::cout << list.size() << std::endl;
     std::cout << list.valueAt(1) << std::endl;
+
+    std::cout << list.front() << std::endl;
+    
     return 0;
 }
