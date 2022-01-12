@@ -7,6 +7,9 @@ int main () {
     list.push_front('c');
     list.push_front('d');
     list.push_front('e');
-    std::cout << list.valueAt(-1) << std::endl;
+    std::cout << list.valueAt(1) << std::endl;
+    list.push_back('f');
+    std::cout << list.size() << std::endl;
+    std::cout << list.pop_front() << std::endl;
     return 0;
 }

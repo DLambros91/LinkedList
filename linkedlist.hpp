@@ -1,6 +1,8 @@
 #ifndef LINKEDLIST
 #define LINKEDLIST
 
+#include <iostream>
+
 template <typename T>
 
 class node {
@@ -85,6 +87,21 @@ class linkedlist {
             numNodes++;
             return;
         }
+
+        // Remove front node and return its value
+        T pop_front() {
+            if (numNodes == 0) {
+                std::cout << "ERROR: List is empty." << std::endl;
+                return -1;
+            }
+            T val = head->data;
+            node<T> * tmp = head;
+            head = head->next;
+            numNodes--;
+            delete tmp;
+            return val;
+        }
+
 };
 
 #endif
