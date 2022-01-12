@@ -102,6 +102,27 @@ class linkedlist {
             return val;
         }
 
+        T pop_back() {
+            if (numNodes == 0) {
+                std::cout << "ERROR: LinkedList is empty." << std::endl;
+            }
+            else if (numNodes == 1) {
+                T val = head->data;
+                delete head;
+                numNodes--;
+                return val;
+            }
+
+            node<T> * tmp = head;
+            while(!tmp->next->next) {
+                tmp = tmp->next;
+            }
+            T val = tail->data;
+            delete tail;
+            tail = tmp;
+            numNodes--;
+            return val;
+        }
 };
 
 #endif

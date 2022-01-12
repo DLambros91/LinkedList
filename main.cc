@@ -11,5 +11,8 @@ int main () {
     list.push_back('f');
     std::cout << list.size() << std::endl;
     std::cout << list.pop_front() << std::endl;
+    std::cout << list.pop_back() << std::endl;
+    std::cout << list.size() << std::endl;
+    std::cout << list.valueAt(1) << std::endl;
     return 0;
 }
