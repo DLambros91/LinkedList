@@ -249,6 +249,37 @@ class linkedlist {
             numNodes--;
             return;
         }
+
+        // Reverses the LinkedList
+        void reverse () {
+            // Set node pointer to head
+            node<T> * list = head;
+            node<T> * newHead = NULL;
+
+            // While list pointer is not null 
+            while (list != NULL) {
+
+                // If new Head is Null set the new head to the head of the LinkedList
+                if (!newHead) {
+                    newHead = list;
+                    list = list->next;
+                } else { // Pop another item off the original list and place it at the head of the new list
+                    node<T> * tmp = newHead;
+                    newHead = list;
+                    list = list->next;
+                    newHead->next = tmp;
+                }
+            }
+            // Swap the original head and tail pointers
+            node<T> * tmp = head;
+            head = tail;
+            tail = tmp;
+
+            // Set the tail to point to NULL
+            tail->next = NULL;
+
+            return;
+        }
 };
 
 #endif

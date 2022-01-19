@@ -62,6 +62,9 @@ int main () {
     list.remove_value ('c');
 
     list.displayList();
+
+    list.reverse();
     
+    list.displayList();
     return 0;
 }
