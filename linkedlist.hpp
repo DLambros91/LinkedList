@@ -115,7 +115,7 @@ class linkedlist {
             }
 
             node<T> * tmp = head;
-            while(!tmp->next->next) {
+            while(tmp->next->next) {
                 tmp = tmp->next;
             }
             T val = tail->data;
@@ -128,10 +128,43 @@ class linkedlist {
         // Get the value stored in the head node
         T front() {
             if (numNodes == 0) {
-                std::cout << "ERROR. LinkedList is empty." << std::endl;
+                std::cout << "ERROR: LinkedList is empty." << std::endl;
                 return -1;
             }
             return head->data;
+        }
+
+        // Return the value stored in the tail of the LinkedList
+        T back() {
+            if (numNodes == 0) {
+                std::cout << "ERROR: LinkedList is empty." << std::endl;
+                return -1;
+            }
+            return tail->data;
+        }
+
+        void insert (int index, T val) {
+            if (index < 0 || index > numNodes) {
+                std::cout << "ERROR: Invalid index" << std::endl;
+                return;
+            } else if (index == 0) {
+                push_front (val);
+                return;
+            } else if (index == numNodes) {
+                push_back (val);
+                return;
+            }
+            node<T> * iter = head;
+
+            while (--index > 0) {
+                iter = iter->next;
+            }
+
+            node<T> * newNode = new node<T>;
+            newNode->data = val;
+            newNode->next = iter->next;
+            iter->next = newNode;
+            return;
         }
 };
 
