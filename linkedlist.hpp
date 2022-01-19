@@ -197,9 +197,10 @@ class linkedlist {
             return;
         }
 
+        // Displays contents of LinkedList
         void displayList () {
             node<T> * iter = head;
-            std::cout<<"entering list" << std::endl;
+            
             while (iter != NULL) {
                 std::cout << iter->data << " ";
                 iter = iter->next;
@@ -207,6 +208,16 @@ class linkedlist {
 
             std::cout << std::endl;
             return;
+        }
+
+        // Returns the value of the node at the nth position from the end of the list
+        T value_n_from_end (int nth) {
+            if (nth < 0 || nth >= numNodes) {
+                std::cout << "ERROR: Invalid index provided." << std::endl;
+                return 0;
+            }
+
+            return valueAt (numNodes-1-nth);
         }
 };
 

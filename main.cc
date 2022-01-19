@@ -39,10 +39,12 @@ int main () {
     std::cout << "Value at the tail of the list: " << list.back () << std::endl;
 
 
-    //list.erase (1);
+    list.erase (1);
 
     //list.displayList ();
     list.displayList ();
 
+    std::cout << "Value at the 1st position from the last node is: " << list.value_n_from_end(1) << std::endl;
+    
     return 0;
 }
