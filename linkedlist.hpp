@@ -121,6 +121,7 @@ class linkedlist {
             T val = tail->data;
             delete tail;
             tail = tmp;
+            tail->next = NULL;
             numNodes--;
             return val;
         }
@@ -164,6 +165,47 @@ class linkedlist {
             newNode->data = val;
             newNode->next = iter->next;
             iter->next = newNode;
+            numNodes++;
+            return;
+        }
+
+        // Removes node at given index
+        void erase (int index) {
+            if (index < 0 || index >= numNodes) {
+                std::cout << "ERROR: Invalid index provided." << std::endl;
+                return;
+            } else if (index == 0) {
+                node<T> * tmp = head;
+                head = head->next;
+                delete tmp;
+                numNodes--;
+                return;
+            }
+            node<T> * iter = head;
+            
+            while (--index > 0) {
+                iter = iter->next;
+            }
+
+            node<T> * tmp = iter->next;
+
+            iter->next = iter->next->next;
+
+            delete tmp;
+
+            numNodes--;
+            return;
+        }
+
+        void displayList () {
+            node<T> * iter = head;
+            std::cout<<"entering list" << std::endl;
+            while (iter != NULL) {
+                std::cout << iter->data << " ";
+                iter = iter->next;
+            }
+
+            std::cout << std::endl;
             return;
         }
 };
