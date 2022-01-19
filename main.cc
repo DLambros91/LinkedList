@@ -45,6 +45,23 @@ int main () {
     list.displayList ();
 
     std::cout << "Value at the 1st position from the last node is: " << list.value_n_from_end(1) << std::endl;
+
+    list.push_back('c');
+    list.push_front('d');
+    list.push_back('e');
+    list.push_front('g');
+    list.push_back('x');
+    list.push_front('e');
+
+    list.displayList();
+
+    list.remove_value ('e');
+
+    list.displayList();
+
+    list.remove_value ('c');
+
+    list.displayList();
     
     return 0;
 }

@@ -219,6 +219,36 @@ class linkedlist {
 
             return valueAt (numNodes-1-nth);
         }
+
+        // Removes the first item in the list with the provided value
+        void remove_value (T value) {
+            node<T> * iter = head;
+
+            if (iter->data == value) {
+                head = head->next;
+                numNodes--;
+                delete iter;
+                return;
+            }
+
+            // Go to the node right before the node containing desired value
+            while (iter->next->data != value) {
+
+                // If reached end of LinkedList, exit
+                if (!iter) {
+                    return;
+                }
+
+                // Iterate to next node
+                iter = iter->next;
+            }
+
+            node<T> * tmp = iter->next;
+            iter->next = iter->next->next;
+            delete tmp;
+            numNodes--;
+            return;
+        }
 };
 
 #endif
