@@ -92,7 +92,7 @@ class linkedlist {
         T pop_front() {
             if (numNodes == 0) {
                 std::cout << "ERROR: List is empty." << std::endl;
-                return -1;
+                return 0;
             }
             T val = head->data;
             node<T> * tmp = head;
@@ -106,6 +106,7 @@ class linkedlist {
         T pop_back() {
             if (numNodes == 0) {
                 std::cout << "ERROR: LinkedList is empty." << std::endl;
+                return 0;
             }
             else if (numNodes == 1) {
                 T val = head->data;
@@ -130,7 +131,7 @@ class linkedlist {
         T front() {
             if (numNodes == 0) {
                 std::cout << "ERROR: LinkedList is empty." << std::endl;
-                return -1;
+                return 0;
             }
             return head->data;
         }
@@ -139,11 +140,13 @@ class linkedlist {
         T back() {
             if (numNodes == 0) {
                 std::cout << "ERROR: LinkedList is empty." << std::endl;
-                return -1;
+                return 0;
             }
             return tail->data;
         }
 
+        // Inserts node at given index in the linkedlist, so the current node 
+        // at that index is pointed to by the new node at the index
         void insert (int index, T val) {
             if (index < 0 || index > numNodes) {
                 std::cout << "ERROR: Invalid index" << std::endl;
